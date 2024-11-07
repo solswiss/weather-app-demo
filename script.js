@@ -147,7 +147,7 @@ async function updateWeatherInfo(city) {
     conditionTxt.textContent = x;
     humidityTxt.textContent = humidity + '%';
     windTxt.textContent = speed + ' m/s';
-    summaryImg.src = `assets/weather/${getWeatherIcon(id)}`;
+    summaryImg.src = `/assets/weather/${getWeatherIcon(id)}`;
     currentDateTxt.textContent = getCurrentDate();
 
     await updateForecastsInfo(city);
@@ -160,10 +160,10 @@ async function updateWeatherInfo(city) {
 // shit gets weird
 function updateTheme() {
     if (theme === "dark" || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.style.backgroundImage = `url('assets/thomas-tucker-solheimasandur-night.jpg')`;
+        document.body.style.backgroundImage = `url('/assets/thomas-tucker-solheimasandur-night.jpg')`;
         document.body.style.height = "100vh";
     } else {
-        document.body.style.backgroundImage = "url('assets/marc-wieland-patrouille-suisse.jpg')";
+        document.body.style.backgroundImage = "url('/assets/marc-wieland-patrouille-suisse.jpg')";
         document.body.style.height = "100vh";
     }
 }
@@ -218,7 +218,7 @@ function updateForecastsItems(data) {
     const forecastItem = `
         <div class="forecast-item">
             <h5 class="forecast-item-date regular-txt">${dateResult}</h5>
-            <img src="assets/weather/${getWeatherIcon(id)}" class="forecast-item-img">
+            <img src="/assets/weather/${getWeatherIcon(id)}" class="forecast-item-img">
             <h5 class="forecast-item-temp">${Math.round(temp)} °C</h5>
         </div>
     `;
