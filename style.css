@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root,
+    :root.light {
+        --text-color: rgb(255,255,255,0.75);
+        --scroll-color: rgb(0,0,0,0.15);
+        --accent2: rgb(255,255,255,0.25);
+        --accent1: rgb(255,255,255,0.15);
+        --accent0: rgb(0,0,0,0.15);
+    }
+    :root.dark {
+        --text-color: rgb(255,255,255,0.8);
+        --scroll-color: rgb(255,255,255,0.15);
+        --accent2: rgb(0,0,0,0.15);
+        --accent1: rgb(0,0,0,0.25);
+        --accent0: rgb(0,0,0,0.5);
+    }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", system-ui;
+    color: white;
+    font-weight: 600;
+}
+
+body {
+    background: url('assets/thomas-tucker-solheimasandur-night.jpg');
+    height: 100dvh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+    /* background: rgb(0,0,0,0.15); */
+    /* backdrop-filter: blur(5px); */
+}
+
+::selection,
+::-moz-selection {
+    color: unset;
+    background-color: rgba(255,255,255,.5);
+}
+/* UTILITIES */
+/* END UTILITIES */
+
+.main-container {
+    width: 900px;
+    height: 580px;
+    z-index: 1;
+    background: linear-gradient(to top, var(--accent0), var(--accent1));
+    border-radius: 12px;
+}
+
+.section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.section-content img {
+    width: fit-content;
+    height: 180px;
+}
+
+/* INPUT CONTAINER */
+.input-container {
+    position: relative;
+    width: 240px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.city-input {
+    width: 240px;
+    padding: 3px 8px;
+    border: 2px solid transparent;
+    background: transparent;
+    outline: none;
+    font-weight: 500;
+    transition: 200ms border;
+    padding-right: 45px;
+}
+
+.city-input:focus {
+    border-bottom: 2px solid var(--accent0);
+}
+
+.city-input::placeholder {
+    color: var(--text-color);
+}
+
+button {
+    background: none;
+    display: flex;
+    border: none;
+    cursor: pointer;
+}
+
+.return-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 1.2rem;
+    margin-top: 15px;
+}
+
+.search-btn {
+    position: absolute;
+    right: 0;
+    background: none;
+    display: flex;
+    border: none;
+    cursor: pointer;
+}
+/* END INPUT CONTAINER */
+
+/* SECTION: WEATHER INFO */
+.weather-info {
+    display: relative;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.weather-info .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    border-radius: 12px 0 12px 0;
+    width: 300px;
+    background: linear-gradient(rgba(255,255,255,0.2), transparent);
+    /*background-clip: padding-box;*/
+    padding: 1em;
+}
+
+.weather-info .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    width: auto;
+    flex-grow: 1;
+    padding: 1em;
+}
+
+.location-date-container {
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.location {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.current-date-txt {
+    color: rgba(255,255,255,.7);
+}
+
+.weather-summary-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.weather-summary-img {
+    width: 160px;
+    height: 160px;
+}
+
+.weather-summary-info {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.condition-txt {
+    font-size: 2rem;
+    margin-top: -10px;
+}
+
+.weather-conditions-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    gap: 10px;
+}
+
+.weather-conditions-item {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow: wrap;
+    min-width: 50%;
+}
+
+.weather-conditions-item span {
+    font-size: 30px;
+}
+
+.forecast-items-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+    margin: 10px 0;
+    scrollbar-color: var(--scroll-color) transparent;
+}
+
+.forecast-items-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.forecast-items-container::-webkit-scrollbar-track {
+    background: var(--scroll-color);
+    border-radius: 99px;
+}
+
+.forecast-items-container::-webkit-scrollbar-thumb {
+    background: var(--scroll-color);
+    border-radius: 99px;
+}
+
+.forecast-item {
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    height: 150px;
+    min-width: 110px;
+    background: var(--accent1);
+    border-radius: 12px;
+    transition: 120ms background;
+}
+
+.forecast-item:hover {
+    background: var(--accent2); 
+}
+
+.forecast-item-img {
+    width: 65px;
+    height: 65px;
+}
+
+.addl-conditions-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.addl-condition {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--accent1);
+    border-radius: 12px;
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.addl-conditions-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px;
+}
+
+.addl-condition-subitem span {
+    font-size: 1.6rem;
+}
+
+/* END SECTION: WEATHER INFO */
+
+/* SECTION: MESSAGE */
+
+
+/* END SECTION: MESSAGE */
+
+/* SECTION: FOOTER */
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+}
+
+footer * {
+    color: var(--text-color);
+    font-size: 0.8rem;
+}
+
+/* END SECTION: FOOTER */
