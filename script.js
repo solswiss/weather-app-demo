@@ -159,7 +159,7 @@ async function updateWeatherInfo(city) {
 
 // shit gets weird
 function updateTheme() {
-    if (theme === "dark" || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (theme === "dark" ||window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.style.backgroundImage = `url('./assets/thomas-tucker-solheimasandur-night.jpg')`;
         document.body.style.height = "100vh";
     } else {
